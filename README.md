@@ -1,44 +1,46 @@
-# build-prompt
+# build-prompt (TypeScript)
 
-Minimal example-driven few-shot prompt builder.
+Example-driven few-shot prompt builder.
+
+- Core is model-agnostic: turns `{ examples, input }` into a single prompt string.
+- CLI is pipe-friendly by default.
+- OpenAI demo (`--run`) is optional and isolated from core prompt building.
 
 ## Install
 
 ```bash
 npm install
+npm run build
 npm link
 ```
 
-## Usage
-
-Build a prompt from a JSON file:
+## CLI
 
 ```bash
 build-prompt samples/basic.json
-```
-
-Write prompt to a file:
-
-```bash
 build-prompt samples/basic.json --out prompt.txt
 ```
 
-Optional OpenAI demo (prints completion after prompt):
+OpenAI demo:
 
 ```bash
 export OPENAI_API_KEY="..."
-build-prompt samples/basic.json --run --model gpt-5-mini
+build-prompt samples/basic.json --run
 ```
 
-## Input JSON format
+Pipe completion to stdout:
 
-```json
-{
-  "examples": [
-    { "input": "freeform", "output": "string OR any JSON value" }
-  ],
-  "input": "final freeform input"
-}
+```bash
+build-prompt samples/basic.json --run --quiet-prompt --completion-stdout
 ```
 
-- If `output` is not a string, it will be pretty-printed into the prompt.
+## Library
+
+```ts
+import { buildPrompt } from "build-prompt";
+
+const prompt = buildPrompt(
+  [{ input: "Hello", output: { ok: true } }],
+  "World"
+);
+```

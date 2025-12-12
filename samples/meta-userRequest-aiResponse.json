@@ -1,0 +1,22 @@
+{
+  "examples": [
+    {
+      "input": "Generate a JSON array of User Request -> AI Response samples of the form { userRequest: string, aiResponse: Ticket } and each Ticket object is of the form { issue: string, severity: \"low\"|\"medium\"|\"high\" }",
+      "output": [
+        {
+          "userRequest": "My account was locked and I can’t log in anymore.",
+          "aiResponse": { "issue": "account access locked", "severity": "high" }
+        },
+        {
+          "userRequest": "Notifications stopped working after the last update.",
+          "aiResponse": { "issue": "notifications not working", "severity": "low" }
+        },
+        {
+          "userRequest": "The app crashes whenever I try to upload a file.",
+          "aiResponse": { "issue": "app crash on file upload", "severity": "high" }
+        }
+      ]
+    }
+  ],
+  "input": "Generate a JSON array of User Request -> AI Response samples of the form { userRequest: string, aiResponse: %%%TYPE_NAME%%% } and each %%%TYPE_NAME%%% object is of the form %%%TYPE_SCHEMA%%%"
+}

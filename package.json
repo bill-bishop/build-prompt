@@ -1,6 +1,6 @@
 {
   "name": "build-prompt",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Example-driven few-shot prompt builder (TypeScript library + CLI). Core prompt building is model-agnostic; OpenAI demo is optional.",
   "type": "module",
   "main": "./dist/index.js",

@@ -1,0 +1,14 @@
+{
+  "name": "build-prompt",
+  "version": "1.1.0",
+  "description": "Minimal example-driven few-shot prompt builder (supports JSON outputs and optional OpenAI demo)",
+  "bin": {
+    "build-prompt": "./index.js"
+  },
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.68.1"
+  }
+}

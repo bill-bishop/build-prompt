@@ -1,0 +1,90 @@
+{
+  "examples": [
+    {
+      "input": "Generate a JSON array of User Request -> AI Response samples of the form { userRequest: string, aiResponse: Ticket } and each Ticket object is of the form { issue: string, severity: \"low\"|\"medium\"|\"high\" }",
+      "output": [
+        {
+          "userRequest": "My account was locked and I can’t log in anymore.",
+          "aiResponse": {
+            "issue": "account access locked",
+            "severity": "high"
+          }
+        },
+        {
+          "userRequest": "Notifications stopped working after the last update.",
+          "aiResponse": {
+            "issue": "notifications not working",
+            "severity": "low"
+          }
+        },
+        {
+          "userRequest": "The app crashes whenever I try to upload a file.",
+          "aiResponse": {
+            "issue": "app crash on file upload",
+            "severity": "high"
+          }
+        }
+      ]
+    },
+    {
+      "input": "Generate a JSON array of User Request -> AI Response samples of the form { userRequest: string, aiResponse: ActionItem } and each ActionItem object is of the form { owner: string, action: string, due: string|null }",
+      "output": [
+        {
+          "userRequest": "Maria will send the updated proposal by Friday.",
+          "aiResponse": {
+            "owner": "Maria",
+            "action": "send updated proposal",
+            "due": "Friday"
+          }
+        },
+        {
+          "userRequest": "Someone should check with IT about the login outage.",
+          "aiResponse": {
+            "owner": "unknown",
+            "action": "check with IT about login outage",
+            "due": null
+          }
+        },
+        {
+          "userRequest": "I’ll follow up with legal tomorrow morning.",
+          "aiResponse": {
+            "owner": "speaker",
+            "action": "follow up with legal",
+            "due": "tomorrow morning"
+          }
+        }
+      ]
+    },
+    {
+      "input": "Generate a JSON array of User Request -> AI Response samples of the form { userRequest: string, aiResponse: ReviewSummary } and each ReviewSummary object is of the form { pros: string[], cons: string[], sentiment: \"negative\"|\"neutral\"|\"positive\" }",
+      "output": [
+        {
+          "userRequest": "The camera quality is amazing, but the battery barely lasts a day.",
+          "aiResponse": {
+            "pros": ["excellent camera quality"],
+            "cons": ["poor battery life"],
+            "sentiment": "neutral"
+          }
+        },
+        {
+          "userRequest": "Fast performance, great screen, and the battery easily lasts all day.",
+          "aiResponse": {
+            "pros": ["fast performance", "high-quality display", "long battery life"],
+            "cons": [],
+            "sentiment": "positive"
+          }
+        },
+        {
+          "userRequest": "The app is slow and crashes constantly. Totally unusable.",
+          "aiResponse": {
+            "pros": [],
+            "cons": ["slow performance", "frequent crashes"],
+            "sentiment": "negative"
+          }
+        }
+      ]
+    }
+  ]
+,
+  "input": "Generate a JSON array of User Request -> AI Response samples of the form { userRequest: string, aiResponse: %%%TYPE_NAME%%% } and each %%%TYPE_NAME%%% object is of the form %%%TYPE_SCHEMA%%%"
+}

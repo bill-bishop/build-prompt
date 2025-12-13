@@ -12,13 +12,18 @@
     }
   },
   "bin": {
-    "build-prompt": "./bin/build-prompt.js"
+    "build-prompt": "bin/build-prompt.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "node ./bin/build-prompt.js ./samples/basic.json"
   },
-  "keywords": ["few-shot", "prompt", "cli", "llm"],
+  "keywords": [
+    "few-shot",
+    "prompt",
+    "cli",
+    "llm"
+  ],
   "license": "MIT",
   "dependencies": {},
   "optionalDependencies": {

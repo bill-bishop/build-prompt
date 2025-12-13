@@ -5,19 +5,17 @@ export async function createOpenAIClientFromEnv() {
     }
     catch { }
     const { OpenAI } = await import("openai");
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey)
-        throw new Error("OPENAI_API_KEY is not set");
-    return new OpenAI({ apiKey });
+    if (!process.env.OPENAI_API_KEY)
+        throw new Error("OPENAI_API_KEY not set");
+    return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
 export async function runOpenAICompletion(client, prompt, opts) {
-    const resp = await client.responses.create({
+    const res = await client.responses.create({
         model: opts.model,
-        input: prompt,
-        temperature: opts.temperature
+        input: prompt
     });
-    const text = resp.output_text ??
-        resp.output?.map((o) => o.content?.map((c) => c.text).join("")).join("\n") ??
+    const text = res.output_text ??
+        res.output?.map((o) => o.content?.map((c) => c.text).join("")).join("\n") ??
         "";
     return String(text).trim();
 }

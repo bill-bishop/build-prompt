@@ -1,9 +1,8 @@
-import type { BuildPromptInputFile, BuildPromptOptions, Example } from "./types.js";
+import type { Example, BuildPromptOptions, BuildPromptInputFile } from "./types.js";
 
-export function formatOutput(value: unknown, prettyPrintJson: boolean = true): string {
+export function formatOutput(value: unknown, prettyPrintJson = true): string {
   if (typeof value === "string") return value.trim();
-  if (!prettyPrintJson) return String(value);
-  return JSON.stringify(value, null, 2);
+  return prettyPrintJson ? JSON.stringify(value, null, 2) : String(value);
 }
 
 export function buildPrompt(
@@ -18,15 +17,9 @@ export function buildPrompt(
     prettyPrintJson = true
   } = opts;
 
-  if (!Array.isArray(examples)) throw new Error(`"examples" must be an array`);
-  if (typeof input !== "string") throw new Error(`"input" must be a string`);
-
   const lines: string[] = [];
 
   examples.forEach((ex, i) => {
-    if (!ex || typeof ex.input !== "string") {
-      throw new Error(`${exampleLabel} ${i + 1} missing "input" string`);
-    }
     lines.push(`${exampleLabel} ${i + 1}:`);
     lines.push(`Input: ${ex.input.trim()}`);
     lines.push(`${outputLabel}: ${formatOutput(ex.output, prettyPrintJson)}`);
@@ -42,7 +35,7 @@ export function buildPrompt(
 
 export function buildPromptFromFile(
   payload: BuildPromptInputFile,
-  opts: BuildPromptOptions = {}
+  opts?: BuildPromptOptions
 ): string {
   return buildPrompt(payload.examples, payload.input, opts);
 }

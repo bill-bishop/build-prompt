@@ -97,7 +97,6 @@ export async function main(argv = process.argv.slice(2)) {
         const client = await createOpenAIClientFromEnv();
         const completion = await runOpenAICompletion(client, prompt, {
             model: args.model,
-            temperature: Number.isFinite(args.temperature) ? args.temperature : 0
         });
         const sink = args.completionToStdout ? process.stdout : process.stderr;
         sink.write((args.completionToStdout ? "" : "\n--- COMPLETION ---\n\n") + completion + "\n");

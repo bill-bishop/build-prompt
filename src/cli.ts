@@ -108,7 +108,6 @@ export async function main(argv = process.argv.slice(2)): Promise<void> {
     const client = await createOpenAIClientFromEnv();
     const completion = await runOpenAICompletion(client as any, prompt, {
       model: args.model,
-      temperature: Number.isFinite(args.temperature) ? args.temperature : 0
     });
 
     const sink = args.completionToStdout ? process.stdout : process.stderr;

@@ -1,7 +1,7 @@
 {
   "name": "build-prompt",
   "version": "1.0.1",
-  "description": "Example-driven few-shot prompt builder (TypeScript library + CLI). Core prompt building is model-agnostic; OpenAI demo is optional.",
+  "description": "Example-driven few-shot prompt builder with callable LLMFunction (gpt-5-mini default)",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -12,11 +12,10 @@
     }
   },
   "bin": {
-    "build-prompt": "bin/build-prompt.js"
+    "build-prompt": "./bin/build-prompt.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "node ./bin/build-prompt.js ./samples/basic.json"
+    "build": "tsc -p tsconfig.json"
   },
   "keywords": [
     "few-shot",

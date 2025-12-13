@@ -1,9 +1,2 @@
 #!/usr/bin/env node
-import { fileURLToPath } from "url";
-import path from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const cliPath = path.join(__dirname, "..", "dist", "cli-entry.js");
-await import(cliPath);
+console.error("CLI intentionally minimal in this build. Use library APIs.");

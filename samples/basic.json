@@ -1,13 +1,9 @@
 {
   "examples": [
     {
-      "input": "My account was locked and I can’t log in.",
+      "input": "My account was locked.",
       "output": { "issue": "account locked", "severity": "high" }
-    },
-    {
-      "input": "The app crashes when uploading a file.",
-      "output": { "issue": "crash on upload", "severity": "high" }
     }
   ],
-  "input": "I was charged twice for the same subscription."
+  "input": "The app crashes on launch."
 }

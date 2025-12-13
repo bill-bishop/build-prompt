@@ -1,6 +1,6 @@
 {
   "name": "build-prompt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Example-driven few-shot prompt builder (TypeScript library + CLI). Core prompt building is model-agnostic; OpenAI demo is optional.",
   "type": "module",
   "main": "./dist/index.js",
@@ -25,9 +25,11 @@
     "llm"
   ],
   "license": "MIT",
-  "dependencies": {},
   "optionalDependencies": {
     "dotenv": "^16.4.5",
     "openai": "^4.68.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }
